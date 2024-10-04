@@ -1,10 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:nsh7nha/adaptive/adaptive_indicatore.dart';
 import 'package:nsh7nha/generated/l10n.dart';
 import 'package:nsh7nha/screens/auth/views/login/login_cubit/login_cubit.dart';
 
+import '../../../../adaptive/adaptive_button.dart';
 import '../../../../components/widgets/custom_outlined_buuton.dart';
 import '../../../../components/widgets/custom_text_form_field.dart';
-import '../../../../components/widgets/default_button.dart';
 import '../../../../constants.dart';
 import '../../../../route/route_constants.dart';
 import '../login/login_cubit/login_states.dart';
@@ -20,6 +22,7 @@ class LoginForm extends StatelessWidget {
     required this.buttonOnPressed,
     required this.state,
   });
+
   final GlobalKey<FormState> formKey;
   final VoidCallback forgetOnPressed;
   final VoidCallback buttonOnPressed;
@@ -39,7 +42,7 @@ class LoginForm extends StatelessWidget {
               controller: emailController,
               context: context,
               label: S.of(context).email,
-              prefixIcon: Icons.email_outlined,
+              prefixIcon: CupertinoIcons.mail_solid,
               textType: TextInputType.emailAddress,
               validator: emailValidator(context),
             ),
@@ -50,7 +53,7 @@ class LoginForm extends StatelessWidget {
               controller: passwordController,
               context: context,
               label: S.of(context).password,
-              prefixIcon: Icons.password,
+              prefixIcon: CupertinoIcons.lock,
               suffixIcon: StoreLoginCubit.get(context).isPassword
                   ? Icons.visibility
                   : Icons.visibility_off,
@@ -70,10 +73,8 @@ class LoginForm extends StatelessWidget {
 
             // sign in with
             state is StoreLoginLoadingState
-                ? const Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : DefaultButton(
+                ? AdaptiveIndicator(os: getOperatingSystem())
+                : AdaptiveButton(
                     onPressed: buttonOnPressed,
                     text: S.of(context).login,
                   ),

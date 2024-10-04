@@ -3,7 +3,7 @@ import 'package:nsh7nha/components/widgets/custom_text_form_field.dart';
 import 'package:nsh7nha/constants.dart';
 import 'package:nsh7nha/generated/l10n.dart';
 
-import '../../../../components/widgets/default_button.dart';
+import '../../../../adaptive/adaptive_button.dart';
 import '../components/otp_submit.dart';
 
 class OtpForgetPassword extends StatefulWidget {
@@ -15,6 +15,7 @@ class OtpForgetPassword extends StatefulWidget {
 
 class _OtpForgetPasswordState extends State<OtpForgetPassword> {
   bool isPassword = true;
+
   // TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -67,7 +68,7 @@ class _OtpForgetPasswordState extends State<OtpForgetPassword> {
                     const SizedBox(
                       height: defaultPadding * 2,
                     ),
-                    DefaultButton(
+                    AdaptiveButton(
                       onPressed: () {},
                       text: S.of(context).sendCode,
                       isUpperCase: false,

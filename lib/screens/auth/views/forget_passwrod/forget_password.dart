@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:nsh7nha/adaptive/adaptive_button.dart';
 import 'package:nsh7nha/components/widgets/custom_text_form_field.dart';
-import 'package:nsh7nha/components/widgets/default_button.dart';
 import 'package:nsh7nha/constants.dart';
 import 'package:nsh7nha/generated/l10n.dart';
 import 'package:nsh7nha/route/route_constants.dart';
 
 class ForgetPassword extends StatelessWidget {
   ForgetPassword({super.key});
+
   final TextEditingController emailController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +53,7 @@ class ForgetPassword extends StatelessWidget {
                   const SizedBox(
                     height: defaultPadding * 2,
                   ),
-                  DefaultButton(
+                  AdaptiveButton(
                     onPressed: () {
                       Navigator.pushNamed(context, otpScreenRoute);
                       // if (formKey.currentState!.validate()) {

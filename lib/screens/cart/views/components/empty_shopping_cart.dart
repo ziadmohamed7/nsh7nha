@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../components/widgets/default_button.dart';
+import '../../../../adaptive/adaptive_button.dart';
 import '../../../../constants.dart';
 
 class EmptyShoppingCart extends StatelessWidget {
@@ -34,7 +34,7 @@ class EmptyShoppingCart extends StatelessWidget {
           const SizedBox(
             height: defaultPadding * 2,
           ),
-          DefaultButton(
+          AdaptiveButton(
             onPressed: () {},
             text: 'Go Shopping',
           ),

@@ -3,8 +3,8 @@ import 'package:nsh7nha/generated/l10n.dart';
 import 'package:nsh7nha/screens/auth/views/register/register_cubit/register_cubit.dart';
 import 'package:nsh7nha/screens/auth/views/register/register_cubit/register_states.dart';
 
+import '../../../../adaptive/adaptive_button.dart';
 import '../../../../components/widgets/custom_text_form_field.dart';
-import '../../../../components/widgets/default_button.dart';
 import '../../../../constants.dart';
 
 class RegisterForm extends StatelessWidget {
@@ -18,6 +18,7 @@ class RegisterForm extends StatelessWidget {
     required this.onPressed,
     required this.state,
   });
+
   final GlobalKey<FormState> formKey;
   final TextEditingController nameController;
   final TextEditingController emailController;
@@ -25,6 +26,7 @@ class RegisterForm extends StatelessWidget {
   final TextEditingController phoneController;
   final VoidCallback onPressed;
   final StoreRegisterStates state;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -90,7 +92,7 @@ class RegisterForm extends StatelessWidget {
                 ? const Center(
                     child: CircularProgressIndicator(),
                   )
-                : DefaultButton(
+                : AdaptiveButton(
                     onPressed: onPressed,
                     text: S.of(context).createAccount,
                   ),
