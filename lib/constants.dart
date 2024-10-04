@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:nsh7nha/generated/l10n.dart';
@@ -114,3 +116,7 @@ emailValidator(context) {
 const pasNotMatchErrorText = "passwords do not match";
 
 const String baseUrl = 'https://api.nsh7nha.com';
+
+String getOperatingSystem() {
+  return Platform.operatingSystem;
+}

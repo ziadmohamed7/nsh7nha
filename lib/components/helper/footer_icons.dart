@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nsh7nha/constants.dart';
 
 import '../widgets/container_with_icon.dart';
 
@@ -7,24 +8,26 @@ class FooterIcons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ContainerWithIcon(
+        const ContainerWithIcon(
           image: 'assets/icons/icons8-google-192.png',
         ),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
-        ContainerWithIcon(
+        const ContainerWithIcon(
           image: 'assets/icons/facebook.png',
         ),
-        SizedBox(
+        const SizedBox(
           width: 20,
         ),
-        ContainerWithIcon(
-          image: 'assets/icons/apple-2.png',
-        ),
+        getOperatingSystem() == 'ios'
+            ? const ContainerWithIcon(
+                image: 'assets/icons/apple-2.png',
+              )
+            : Container(),
       ],
     );
   }
