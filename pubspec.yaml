@@ -43,7 +43,13 @@ dependencies:
   flutter_secure_storage: ^9.2.2
   fluttertoast: ^8.2.8
   font_awesome_flutter: ^10.1.0
+  convex_bottom_bar: ^3.2.0
+  bloc: ^8.1.4
+  carousel_slider: ^5.0.0
+  webview_flutter: ^4.9.0
+  lottie: ^3.1.2
 
+  intl: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -72,6 +78,8 @@ flutter:
     - assets/flags/
     - assets/logo/
     - assets/screens/
+    - assets/header/
+    - assets/stores/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

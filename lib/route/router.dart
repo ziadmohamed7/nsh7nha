@@ -15,6 +15,6 @@ Map<String, WidgetBuilder> routes(context) {
     passwordRecoveryScreenRoute: (context) => ForgetPassword(),
     otpScreenRoute: (context) => const OtpForgetPassword(),
     cartScreenRoute: (context) => const CartView(),
-    homeScreenRoute: (context) => const HomeView(),
+    homeScreenRoute: (context) => const Home(),
   };
 }

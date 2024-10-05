@@ -9,9 +9,9 @@ import 'package:nsh7nha/theme/app_theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   String token = await SecureStorage().getToken() ?? '';
-  print(token);
-  await SecureStorage().deleteToken();
-  print(token);
+  // print(token);
+  // await SecureStorage().deleteToken();
+  // print(token);
   runApp(MyApp(
     token: token,
   ));
@@ -19,7 +19,9 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key, required this.token});
+
   final String token;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       // onGenerateRoute: router.generateRoute,
       routes: routes(context),
-      initialRoute: token.isNotEmpty ? cartScreenRoute : logInScreenRoute,
+      initialRoute: token.isNotEmpty ? homeScreenRoute : logInScreenRoute,
     );
   }
 }

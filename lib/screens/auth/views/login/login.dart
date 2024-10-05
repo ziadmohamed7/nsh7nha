@@ -14,7 +14,7 @@ import '../../../../generated/l10n.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
-  
+
   final GlobalKey<FormState> formKey = GlobalKey();
 
   final TextEditingController emailController = TextEditingController();
@@ -84,7 +84,7 @@ class LoginScreen extends StatelessWidget {
           if (state is StoreLoginSuccessState) {
             ShowToast(
                 message: state.loginModel.message, state: ToastStates.Suceess);
-            Navigator.pushReplacementNamed(context, cartScreenRoute);
+            Navigator.pushReplacementNamed(context, homeScreenRoute);
           } else if (state is StoreLoginErrorState) {
             ShowToast(message: state.error, state: ToastStates.Error);
           }

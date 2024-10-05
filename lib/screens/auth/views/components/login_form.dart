@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:nsh7nha/adaptive/adaptive_indicatore.dart';
 import 'package:nsh7nha/generated/l10n.dart';
 import 'package:nsh7nha/screens/auth/views/login/login_cubit/login_cubit.dart';
@@ -55,8 +54,8 @@ class LoginForm extends StatelessWidget {
               label: S.of(context).password,
               prefixIcon: CupertinoIcons.lock,
               suffixIcon: StoreLoginCubit.get(context).isPassword
-                  ? Icons.visibility
-                  : Icons.visibility_off,
+                  ? CupertinoIcons.eye
+                  : CupertinoIcons.eye_slash,
               isPassword: StoreLoginCubit.get(context).isPassword,
               suffixIconPressed: () {
                 StoreLoginCubit.get(context).togglePasswordIcon();

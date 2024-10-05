@@ -1,7 +1,5 @@
-abstract class StoreStates {
-  
-}
+abstract class AppStates {}
 
-class StoreInitialState extends StoreStates{}
+class AppInitialState extends AppStates {}
 
-class StoreChangeBottomNavState extends StoreStates {}
+class bottomnav_state extends AppStates {}
