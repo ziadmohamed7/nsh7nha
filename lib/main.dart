@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:nsh7nha/components/helper/secure_storage.dart';
 import 'package:nsh7nha/generated/l10n.dart';
 import 'package:nsh7nha/route/route_constants.dart';
 import 'package:nsh7nha/route/router.dart';
+import 'package:nsh7nha/screens/home/screens/home_layout/home_cubit/store_cubit.dart';
+import 'package:nsh7nha/screens/home/screens/home_layout/home_cubit/store_states.dart';
 import 'package:nsh7nha/theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  String token = await SecureStorage().getToken() ?? '';
-  // print(token);
   // await SecureStorage().deleteToken();
-  // print(token);
-  runApp(MyApp(
-    token: token,
-  ));
+  String token = await SecureStorage().getToken() ?? '';
+  runApp(MyApp(token: token));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,26 +21,34 @@ class MyApp extends StatelessWidget {
 
   final String token;
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: const Locale('en'),
-      localizationsDelegates: const [
-        S.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
-      debugShowCheckedModeBanner: false,
-      title: 'Shop Template by The Flutter Way',
-      theme: AppTheme.lightTheme(context),
-      darkTheme: AppTheme.darkTheme(context),
-      themeMode: ThemeMode.light,
-      // onGenerateRoute: router.generateRoute,
-      routes: routes(context),
-      initialRoute: token.isNotEmpty ? homeScreenRoute : logInScreenRoute,
+    return BlocProvider(
+      create: (context) => AppCubit()..get_favorits_car(),
+      child: BlocConsumer<AppCubit, AppStates>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return MaterialApp(
+            locale: const Locale('en'),
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
+            title: 'Shop Template by The Flutter Way',
+            theme: AppTheme.lightTheme(context),
+            darkTheme: AppTheme.darkTheme(context),
+            themeMode: ThemeMode.light,
+            routes: routes(context),
+            initialRoute: token.isNotEmpty ? homeScreenRoute : logInScreenRoute,
+          );
+        },
+      ),
     );
   }
 }

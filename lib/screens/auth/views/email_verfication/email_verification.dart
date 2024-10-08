@@ -25,10 +25,16 @@ class EmailVerification extends StatelessWidget {
             StoreEmailVerificationStates>(
           listener: (context, state) {
             if (state is StoreEmailVerificationSuccessState) {
-              ShowToast(message: state.message, state: ToastStates.Suceess);
+              ShowCustomToast(
+                  message: state.message,
+                  state: ToastStates.Success,
+                  context: context);
               Navigator.pushReplacementNamed(context, homeScreenRoute);
             } else if (state is StoreEmailVerificationErrorState) {
-              ShowToast(message: 'error otp code .', state: ToastStates.Error);
+              ShowCustomToast(
+                  message: 'error otp code .',
+                  state: ToastStates.Error,
+                  context: context);
             }
           },
           builder: (context, state) {

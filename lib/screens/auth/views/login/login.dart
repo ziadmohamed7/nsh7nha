@@ -82,11 +82,16 @@ class LoginScreen extends StatelessWidget {
         },
         listener: (context, state) {
           if (state is StoreLoginSuccessState) {
-            ShowToast(
-                message: state.loginModel.message, state: ToastStates.Suceess);
+            ShowCustomToast(
+                message: state.loginModel.message,
+                state: ToastStates.Success,
+                context: context);
             Navigator.pushReplacementNamed(context, homeScreenRoute);
           } else if (state is StoreLoginErrorState) {
-            ShowToast(message: state.error, state: ToastStates.Error);
+            ShowCustomToast(
+                message: state.error,
+                state: ToastStates.Error,
+                context: context);
           }
         },
       ),

@@ -13,12 +13,14 @@ import '../../../../components/widgets/flexible_divider.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
+
   static String id = 'register';
   final GlobalKey<FormState> formKey = GlobalKey();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -91,9 +93,10 @@ class RegisterScreen extends StatelessWidget {
               );
             }));
           } else if (state is StoreRegisterErrorState) {
-            ShowToast(
+            ShowCustomToast(
               message: state.error,
               state: ToastStates.Error,
+              context: context,
             );
           }
         },

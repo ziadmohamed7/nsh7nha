@@ -7,25 +7,37 @@ void categoryNavigator({required int index, required context}) {
     case 0:
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => StoresCountry()),
+        MaterialPageRoute(
+            builder: (context) => StoresCountry(
+                  categoryId: index,
+                )),
       );
       break;
     case 1:
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => StoresCountry()),
+        MaterialPageRoute(
+            builder: (context) => StoresCountry(
+                  categoryId: index,
+                )),
       );
       break;
     case 2:
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => StoresCountry()),
+        MaterialPageRoute(
+            builder: (context) => StoresCountry(
+                  categoryId: index,
+                )),
       );
       break;
     case 3:
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => StoresCountry()),
+        MaterialPageRoute(
+            builder: (context) => StoresCountry(
+                  categoryId: index,
+                )),
       );
       break;
   }

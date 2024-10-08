@@ -4,7 +4,10 @@ import 'package:nsh7nha/constants.dart';
 class CartItem extends StatelessWidget {
   const CartItem({
     super.key,
+    required this.cartItem,
   });
+
+  final cartItem;
 
   @override
   Widget build(BuildContext context) {
